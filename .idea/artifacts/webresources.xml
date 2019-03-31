@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="webresources">
+    <output-path>$PROJECT_DIR$/out/artifacts/webresources</output-path>
+    <root id="root">
+      <element id="directory" name="resources">
+        <element id="artifact" artifact-name="wpd2_coursework_group10:war exploded" />
+      </element>
+    </root>
+  </artifact>
+</component>
