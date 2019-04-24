@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="wpd2_coursework_group10" target="11" />
+      <module name="wpd2_coursework_group10" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
