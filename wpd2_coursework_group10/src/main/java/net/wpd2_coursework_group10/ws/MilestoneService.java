@@ -2,10 +2,7 @@ package net.wpd2_coursework_group10.ws;
 
 import net.wpd2_coursework_group10.model.User;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
@@ -21,10 +18,11 @@ public class MilestoneService {
 //        return "Rest Never Sleeps";
 //    }
 
-    @Path("/account/{username}&{password}")
-    @GET
+    @Path("/account/login/")
+    @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public List<User> getUser(@PathParam("username") String username, @PathParam("password") String password){
+    @Consumes(MediaType.APPLICATION_JSON)
+    public List<User> getUser(String payload){
 
         ArrayList<User> resList = new ArrayList<User>();
         User user_1 = new User();

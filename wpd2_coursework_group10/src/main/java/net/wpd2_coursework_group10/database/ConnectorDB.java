@@ -5,9 +5,12 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;
+import net.wpd2_coursework_group10.model.AccountLog;
 import net.wpd2_coursework_group10.model.Milestone;
 import net.wpd2_coursework_group10.model.User;
 import org.bson.Document;
+
+import javax.sound.midi.SysexMessage;
 
 //import java.sql.*;
 
@@ -86,19 +89,23 @@ public class ConnectorDB {
             // Retieving and creating a collection if not available
             System.out.println("Creating collection...");
             int pointer = 0;
-            int i = 0;
-            String myCollection[] = {"Account", "Milestones"};
-            String tmp_name[] = new String[myCollection.length];
+            String myCollection[] = {"Account", "Milestones", "AccountLogs"};
             for (String name : database.listCollectionNames()) {
                 if (name.equals(myCollection[pointer])){
+                    myCollection[pointer] = null;
                     pointer++;
-                }else{
-                    tmp_name[i] = name;
                 }
-                i++;
             }
 
-            if (pointer < myCollection.length-1) for (int j = 0; j < tmp_name.length; j++) database.createCollection(tmp_name[j]);
+            if (pointer < myCollection.length-1){
+
+                for (int j = 0; j < myCollection.length; j++) {
+
+                    if (!myCollection[j].equals(null)) database.createCollection(myCollection[j]);
+
+                }
+            }
+
             System.out.println("Collection created successfully");
         }
 
@@ -111,6 +118,7 @@ public class ConnectorDB {
             collections = database.getCollection("Account");
             Document document = new Document().append("firstName", account.getFirstName()).append("middleName", account.getMiddleName()).append("lastName", account.getLastName()).append("email", account.getEmailAddres()).append("password", account.getPassword());
             System.out.println("Inserting document into a collection...");
+            // insert into a collection
             collections.insertOne(document);
             System.out.println("Document inserted successfully");
         }
@@ -121,6 +129,18 @@ public class ConnectorDB {
             collections = database.getCollection("Milestones");
             Document document = new Document().append("Author", milestone.getAuthor()).append("Description", milestone.getDescription()).append("dueDate", milestone.getDueDate()).append("actualCompDate", milestone.getActualCompletionDate()).append("user", milestone.getUser()).append("status", milestone.getStatus());
             System.out.println("Inserting document into a collection...");
+            // insert into a collection
+            collections.insertOne(document);
+            System.out.println("Document inserted successfully");
+        }
+
+        public void insertLogs(AccountLog accountLog){
+            // retrieving a collection
+            System.out.println("Selecting a collection AccountLog...");
+            collections = database.getCollection("AccountLogs");
+            Document document = new Document().append("userAccount", accountLog.getUserAccount()).append("LoginTime", accountLog.getLoginTime()).append("session", accountLog.getSession()).append("status", accountLog.getStatus());
+            System.out.println("Inserting document into a collection...");
+            // insert into a collection
             collections.insertOne(document);
             System.out.println("Document inserted successfully");
         }
@@ -156,8 +176,15 @@ public class ConnectorDB {
         milestone.setActualCompletionDate("2019 - 04 - 24");
         milestone.setStatus("pending");
 
+        AccountLog accountLog = new AccountLog();
+        accountLog.setUserAccount(user.getEmailAddres());
+        accountLog.setLoginTime();
+        accountLog.setSession(user.getEmailAddres()+" "+user.getPassword()+" "+accountLog.getLoginTime());
+        accountLog.setStatus("ACTIVE");
+
         dao.insertAccount(user);
         dao.insertMilestone(milestone);
+        dao.insertLogs(accountLog);
     }
 
 

@@ -9,8 +9,8 @@
     response.setDateHeader("Expires", 0);
     response.setHeader("Pragma","no-cache");
 
-    String username=(String)session.getAttribute("username");
-    if(username == null) response.sendRedirect("login");
+    String userSession = (String)session.getAttribute("user_session");
+    if(userSession == null) response.sendRedirect("login");
 
 %>
 

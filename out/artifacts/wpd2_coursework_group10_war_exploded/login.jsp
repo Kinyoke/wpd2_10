@@ -176,16 +176,16 @@
                 <!-- <form action="/action_page.php" class="needs-validation" novalidate></form> -->
 
                 <div class="form-group">
-                    <label for="email">EMAIL</label>
-                    <input type="email" class="form-control" id="emailL" name="emailL">
+                    <label for="email_lg">EMAIL</label>
+                    <input type="email" class="form-control" id="email_lg" name="emailL">
                 </div>
 
                 <div class="form-group">
-                    <label for="pwd">PASSWORD</label>
-                    <input type="password" class="form-control" id="pswdL" name="pswdL">
+                    <label for="pwd_lg">PASSWORD</label>
+                    <input type="password" class="form-control" id="pwd_lg" name="pswdL">
                 </div>
 
-                <button type="submit" class="btn btn-block">Submit</button>
+                <button type="submit" id="login-btn" class="btn btn-block">Submit</button>
 
                 <p id="signup-resetp" style="text-align: center; margin-top: 20px;"><u>FORGOT YOUR PASSWORD?</u></p>
 
@@ -273,6 +273,7 @@
 
 
 <script src="script.js"></script>
+<script src="login.js"></script>
 
 </body>
 </html>
