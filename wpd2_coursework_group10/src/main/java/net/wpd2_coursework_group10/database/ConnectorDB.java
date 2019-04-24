@@ -109,7 +109,7 @@ public class ConnectorDB {
             // Retrieving a collection
             System.out.println("Selecting a collection Account...");
             collections = database.getCollection("Account");
-            Document document = new Document("title", "UserAccount").append("id",1).append("firstName", account.getFirstName()).append("middleName", account.getMiddleName()).append("lastName", account.getLastName()).append("email", account.getEmailAddres()).append("password", account.getPassword());
+            Document document = new Document().append("firstName", account.getFirstName()).append("middleName", account.getMiddleName()).append("lastName", account.getLastName()).append("email", account.getEmailAddres()).append("password", account.getPassword());
             System.out.println("Inserting document into a collection...");
             collections.insertOne(document);
             System.out.println("Document inserted successfully");
@@ -119,7 +119,7 @@ public class ConnectorDB {
             // Retrieving a collection
             System.out.println("Selecting a collection Milestone...");
             collections = database.getCollection("Milestones");
-            Document document = new Document("title", "milestones").append("id", 1).append("Author", milestone.getAuthor()).append("Description", milestone.getDescription()).append("dueDate", milestone.getDueDate()).append("actualCompDate", milestone.getActualCompletionDate()).append("user", milestone.getUser()).append("status", milestone.getStatus());
+            Document document = new Document().append("Author", milestone.getAuthor()).append("Description", milestone.getDescription()).append("dueDate", milestone.getDueDate()).append("actualCompDate", milestone.getActualCompletionDate()).append("user", milestone.getUser()).append("status", milestone.getStatus());
             System.out.println("Inserting document into a collection...");
             collections.insertOne(document);
             System.out.println("Document inserted successfully");
