@@ -32,6 +32,11 @@
 
         .form-check{ margin-top: 5%; margin-bottom: 7%; color: rgb(70, 70, 70); }
 
+        @media only screen and (max-width: 480px) {
+            .cover img { width: 90%; height: 100%; margin-left: 5%; }
+
+        }
+
     </style>
 
 </head>
@@ -72,7 +77,9 @@
 </nav>
 
 
-<section></section>
+<section class="cover">
+    <img src="landingImage.jpg" alt="landingImage">
+</section>
 
 
 <!-- <footer>
