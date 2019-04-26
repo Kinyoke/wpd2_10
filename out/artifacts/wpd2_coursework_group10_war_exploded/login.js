@@ -1,23 +1,12 @@
 var BASE_URL = "http://localhost:8080/milestone/APIv1/services/";
 
-// when the login btn is clicked get form values send them to the server then if response is valid
-// set a
 
-var payload = {
-    "ACTION" : "LOGIN",
-    "APP_VERSION" : "1.0.0",
-    "CLIENT_ID" : "WPD2",
-    "ORIGIN" : "MILESTONER_WEB",
-    "SERVICE" : "M_PLANER",
-    "UUID" : "DS34-DFFX-54HH-C4IO"
-};
+var payload = { "ACTION" : "LOGIN", "APP_VERSION" : "1.0.0", "CLIENT_ID" : "WPD2", "ORIGIN" : "MILESTONER_WEB", "SERVICE" : "M_PLANER", "UUID" : "DS34-DFFX-54HH-C4IO" };
 
 $("#login-btn").click(function () {
-        if ($("#email_lg").val() != "" && $("#pwd_lg").val() != ""){
-            var mpayload = payload; // {email: $("#email_lg").val(), password: $("#pwd_lg").val()};
-            mpayload = JSON.stringify(mpayload);
-            // call api service for login
-             console.log(mpayload);
+        if ($("#email_lg").val() !== "" && $("#pwd_lg").val() !== ""){
+            var info = {email: $("#email_lg").val(), password: $("#pwd_lg").val()};
+            var mpayload = JSON.stringify(payload);
             serviceHandler("account/login/", mpayload);
         } else{
             alert("fileds empty!");
@@ -27,7 +16,7 @@ $("#login-btn").click(function () {
 );
 
 
-function serviceHandler(serviceType, payload) {
+function serviceHandler(serviceType, myPayload) {
 
     console.log("calling service api...");
 
@@ -35,7 +24,7 @@ function serviceHandler(serviceType, payload) {
 
     xhttp.onreadystatechange = function() {
 
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState === 4 && this.status === 200) {
             console.log("response from the sever");
             console.log(this.responseText);
         }
@@ -45,10 +34,8 @@ function serviceHandler(serviceType, payload) {
     var url = BASE_URL+serviceType;
 
     xhttp.open("POST", url, true);
-    xhttp.setRequestHeader("Content-type", "'application/json; charset=UTF-8");
-    xhttp.setRequestHeader("Accept", "application/json");
-
-    xhttp.send(payload);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(myPayload);
 
 }
 
