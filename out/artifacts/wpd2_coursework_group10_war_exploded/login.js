@@ -1,19 +1,24 @@
-BASE_URL = "localhost:8080/milestone/APIv1/services/";
+var BASE_URL = "http://localhost:8080/milestone/APIv1/services/";
 
 // when the login btn is clicked get form values send them to the server then if response is valid
 // set a
 
+var payload = {
+    "ACTION" : "LOGIN",
+    "APP_VERSION" : "1.0.0",
+    "CLIENT_ID" : "WPD2",
+    "ORIGIN" : "MILESTONER_WEB",
+    "SERVICE" : "M_PLANER",
+    "UUID" : "DS34-DFFX-54HH-C4IO"
+};
 
 $("#login-btn").click(function () {
         if ($("#email_lg").val() != "" && $("#pwd_lg").val() != ""){
-            var payload = {"email": $("#email_lg").val(), "password": $("#pwd_lg").val()};
-            payload = JSON.stringify(payload);
-            payload = JSON.parse(payload);
-            console.log(payload);
-
+            var mpayload = payload; // {email: $("#email_lg").val(), password: $("#pwd_lg").val()};
+            mpayload = JSON.stringify(mpayload);
             // call api service for login
-            serviceHandler("account/login/", payload);
-
+             console.log(mpayload);
+            serviceHandler("account/login/", mpayload);
         } else{
             alert("fileds empty!");
         }
@@ -30,18 +35,18 @@ function serviceHandler(serviceType, payload) {
 
     xhttp.onreadystatechange = function() {
 
-        console.log("waiting for response...");
-
         if (this.readyState == 4 && this.status == 200) {
-            console.log("response from the other side of the world");
-            console.log(this.response);
+            console.log("response from the sever");
+            console.log(this.responseText);
         }
 
     };
 
-    xhttp.open("POST", BASE_URL+serviceType, true);
+    var url = BASE_URL+serviceType;
 
-    xhttp.setRequestHeader("Content-type", "'application/json");
+    xhttp.open("POST", url, true);
+    xhttp.setRequestHeader("Content-type", "'application/json; charset=UTF-8");
+    xhttp.setRequestHeader("Accept", "application/json");
 
     xhttp.send(payload);
 

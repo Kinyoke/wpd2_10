@@ -47,4 +47,11 @@ public class User {
     public String getMiddleName() { return this.middleName; }
 
     public String getLastName() { return this.lastName; }
+
+    @Override
+    public String toString() {
+        return new StringBuffer(" FirstName: ").append(this.firstName).append(" middleName: ").append(this.middleName)
+                .append(" lastName: ").append(this.lastName).append(" emailAddress: ").append(this.emailAddres).append(" password: ")
+                .append(this.password).toString();
+    }
 }

@@ -10,10 +10,6 @@ import net.wpd2_coursework_group10.model.Milestone;
 import net.wpd2_coursework_group10.model.User;
 import org.bson.Document;
 
-import javax.sound.midi.SysexMessage;
-
-//import java.sql.*;
-
 public class ConnectorDB {
 
 
@@ -31,30 +27,8 @@ public class ConnectorDB {
 
     private MongoCollection<Document> collections;
 
-//
-//    private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-//    private static final String DB_URL = "jdbc:mysql://localhost/EVM";
-//    private static String USER = "root";
-//    private static String PASS = "";
-//    private static Connection conn = null;
-//    private static Statement stmt = null;
-//    private static String sql;
-
     private static final String myDatabase = "Milestone";
 
-//    private Connection connect = null;
-//
-//    private Statement statement = null;
-//
-//    private PreparedStatement preparedStatement = null;
-//
-//    private ResultSet resultSet = null;
-//
-//    private int operation;
-//
-//    private String acc_usr_email;
-//
-//    private String acc_pswd;
 
 
     public void setUsername(String username) { this.username = username; }
