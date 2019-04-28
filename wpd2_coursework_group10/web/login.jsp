@@ -1,7 +1,12 @@
+<%@ page import="net.wpd2_coursework_group10.database.DatabaseConnector" %>
+<%@ page import="java.security.MessageDigest" %>
+<%@ page import="java.math.BigInteger" %>
+<%@ page import="java.security.NoSuchAlgorithmException" %>
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="utf-8">
+    <%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
+    <meta charset=" UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Milestoner | Login</title>
 
@@ -115,40 +120,12 @@
 </head>
 <body>
 
+    <%
+        String user = (String) session.getAttribute("user_acc");
+        String actvitySession = (String) session.getAttribute("session");
 
-<!-- <nav class="navbar navbar-expand-md bg-light navbar-light">
-
-    <div class="container"> -->
-
-<!-- Brand -->
-<!-- <a class="navbar-brand" href="#">Milestoner</a> -->
-
-<!-- Toggler/collapsibe Button -->
-<!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-</button> -->
-
-<!-- Navbar links -->
-<!-- 			<div class="collapse navbar-collapse" id="collapsibleNavbar">
-			    <ul class="navbar-nav">
-			      <li class="nav-item">
-			        <a class="nav-link" href="#">Home</a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link" href="#">Add Milestone</a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link" href="#">Log In</a>
-			      </li>
-			    </ul>
-			</div>
-
-
-
-		</div>
-
-	</nav> -->
-
+        if(user != null && actvitySession != null) response.sendRedirect("dashboard");
+    %>
 
 <section>
 
@@ -169,23 +146,63 @@
                 <div class="tab-menu col-lg-6">Back</div>
             </div>
 
-
+            <form novalidate id="user-form" accept-charset="UTF-8"></form>
 
             <div class="form-container-form" id="active-form">
 
-                <!-- <form action="/action_page.php" class="needs-validation" novalidate></form> -->
-
                 <div class="form-group">
                     <label for="email_lg">EMAIL</label>
-                    <input type="email" class="form-control" id="email_lg" name="emailL">
+                    <input type="email" class="form-control" id="email_lg" name="email_lg">
                 </div>
 
                 <div class="form-group">
                     <label for="pwd_lg">PASSWORD</label>
-                    <input type="password" class="form-control" id="pwd_lg" name="pswdL">
+                    <input type="password" class="form-control" id="pwd_lg" name="pswd_lg">
                 </div>
 
-                <button type="submit" id="login-btn" class="btn btn-block">Submit</button>
+                <input type="text" hidden form="user-form" name="data-form" id="data-form">
+
+                <button id="login-btn" name="login-btn" class="btn btn-block">Submit</button>
+
+                <%
+                    if (request.getParameter("data-form") != null){
+                        String req = (String) request.getParameter("data-form");
+                        String secreteWord = "ULTR415M4N@DARTZ2019";
+                        String acc_user = req.split(",")[0];
+                        String acc_session = req.split(",")[1];
+
+                        DatabaseConnector databaseConnector = new DatabaseConnector();
+
+                        if (databaseConnector.getCollectionCount("AccountLogs") > 0) {
+                            if (acc_session.equals(databaseConnector.getSessionId(acc_user))){
+                                try {
+                                    MessageDigest md = MessageDigest.getInstance("MD5");
+                                    byte[] messageDigest = md.digest((acc_session+secreteWord).getBytes());
+                                    BigInteger no = new BigInteger(1, messageDigest);
+                                    // Convert message digest into hex value
+                                    String hashtext = no.toString(16);
+                                    while (hashtext.length() < 32) {
+                                        hashtext = "0".concat(hashtext);
+                                    }
+                                    acc_session = hashtext;
+                                }
+
+                                // For specifying wrong message digest algorithms
+                                catch (NoSuchAlgorithmException e) {
+                                    throw new RuntimeException(e);
+                                }
+
+                                session.setAttribute("user_acc", acc_user);
+                                session.setAttribute("session", acc_session);
+
+                                response.sendRedirect("dashboard");
+                            }
+                        }
+
+                    }
+
+
+                %>
 
                 <p id="signup-resetp" style="text-align: center; margin-top: 20px;"><u>FORGOT YOUR PASSWORD?</u></p>
 
@@ -204,13 +221,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="uname">EMAIL</label>
-                    <input type="text" class="form-control" id="emailR" placeholder="email" name="emailR">
+                    <label for="email_r">EMAIL</label>
+                    <input type="text" class="form-control" id="email_r" placeholder="email" name="email_r">
                 </div>
 
                 <div class="form-group">
-                    <label for="pswd">PASSWORD</label>
-                    <input type="password" class="form-control pwd" id="pwd-org" name="pwd-org" required>
+                    <label for="pswd_r">PASSWORD</label>
+                    <input type="password" class="form-control pwd" id="pswd_r" name="pswd_r" required>
 
                     <div class="canvas-wrap">
                         <canvas id="canvas" width="100" height="100" style=" margin-top: 100px; margin: -24px -25px;"></canvas>
@@ -221,11 +238,11 @@
 
 
                 <div class="form-group">
-                    <label for="pwd-con">CONFIRM PASSWORD</label>
-                    <input type="password" class="form-control pwd" id="pwd-con" name="pwd-con">
+                    <label for="pswd_con">CONFIRM PASSWORD</label>
+                    <input type="password" class="form-control pwd" id="pswd_con" name="pswd_con">
                 </div>
 
-                <button type="submit" class="btn btn-block">Create account</button>
+                <button type="submit" id="signup-btn" class="btn btn-block">Create account</button>
 
             </div>
 
@@ -272,8 +289,8 @@
 </section>
 
 
-<script src="script.js"></script>
-<script src="login.js"></script>
+<script src="script/script.js"></script>
+<script src="script/client.js"></script>
 
 </body>
 </html>

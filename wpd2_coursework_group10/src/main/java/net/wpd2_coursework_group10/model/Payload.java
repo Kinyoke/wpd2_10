@@ -9,7 +9,7 @@ public class Payload {
 
     private String CLIENT_ID;
 
-    private Object DATA;
+    private Object PAYLOAD_DATA;
 
     private String ORIGIN;
 
@@ -26,7 +26,7 @@ public class Payload {
 
     public void setCLIENT_ID(String CLIENT_ID) { this.CLIENT_ID = CLIENT_ID; }
 
-    public void setDATA(Object DATA) { this.DATA = DATA; }
+    public void setDATA(Object DATA) { this.PAYLOAD_DATA = DATA; }
 
     public void setORIGIN(String ORIGIN) { this.ORIGIN = ORIGIN; }
 
@@ -49,7 +49,7 @@ public class Payload {
         return CLIENT_ID;
     }
 
-    public Object getPAYLOAD_DATA() { return DATA; }
+    public Object getPAYLOAD_DATA() { return PAYLOAD_DATA; }
 
     public String getORIGIN() {
         return ORIGIN;
@@ -66,6 +66,6 @@ public class Payload {
 
     @Override
     public String toString() {
-        return new StringBuffer("ACTION : ").append(this.ACTION).append(" APP_VERSION : ").append(this.APP_VERSION).append(" CLIENT_ID : ").append(this.CLIENT_ID).append(" ORIGIN : ").append(this.ORIGIN	).append(" SERVICE : ").append(this.SERVICE).append(" UUID : ").append(this.UUID).toString();
+        return new StringBuffer("ACTION : ").append(this.ACTION).append(" APP_VERSION : ").append(this.APP_VERSION).append(" CLIENT_ID : ").append(" DATA : ").append(this.PAYLOAD_DATA).append(this.CLIENT_ID).append(" ORIGIN : ").append(this.ORIGIN	).append(" SERVICE : ").append(this.SERVICE).append(" UUID : ").append(this.UUID).toString();
     }
 }

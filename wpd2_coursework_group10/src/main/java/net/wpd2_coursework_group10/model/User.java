@@ -8,39 +8,26 @@ package net.wpd2_coursework_group10.model;
 
 public class User {
 
-    private String fullName;
-
-    private String emailAddres;
-
-    private String password;
-
     private String firstName;
 
     private String middleName;
 
     private String lastName;
 
+    private String emailAddress;
 
-    private int lname = 0;
+    private String password;
 
-    public void setFullName(String fullName) {
-        this.lname = fullName.split(" ").length;
-        this.firstName = (lname > 0)? fullName.split(" ")[0] : "";
-        this.middleName = (lname > 0)? fullName.split(" ")[1] : "";
-        this.lastName = (lname > 0)? fullName.split(" ")[2] : "";
-        this.fullName = fullName;
-    }
+    public void setFirstName(String firstName) { this.firstName = firstName; }
 
-    public void setEmailAddres(String emailAddres) { this.emailAddres = emailAddres; }
+    public void setMiddleName(String middleName) { this.middleName = middleName; }
+
+    public void setLastName(String lastName) { this.lastName = lastName; }
+
+    public void setEmailAddres(String emailAddress) { this.emailAddress = emailAddress; }
 
     public void setPassword(String password) { this.password = password; }
 
-    public String getFullName() { return fullName; }
-
-
-    public String getEmailAddres() { return emailAddres; }
-
-    public String getPassword() { return password; }
 
     public String getFirstName() { return this.firstName; }
 
@@ -48,10 +35,14 @@ public class User {
 
     public String getLastName() { return this.lastName; }
 
+    public String getEmailAddres() { return emailAddress; }
+
+    public String getPassword() { return password; }
+
     @Override
     public String toString() {
         return new StringBuffer(" FirstName: ").append(this.firstName).append(" middleName: ").append(this.middleName)
-                .append(" lastName: ").append(this.lastName).append(" emailAddress: ").append(this.emailAddres).append(" password: ")
+                .append(" lastName: ").append(this.lastName).append(" emailAddress: ").append(this.emailAddress).append(" password: ")
                 .append(this.password).toString();
     }
 }

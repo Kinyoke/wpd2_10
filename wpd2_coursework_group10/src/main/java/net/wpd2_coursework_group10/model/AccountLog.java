@@ -17,18 +17,19 @@ public class AccountLog {
 
     private String status;
 
-    private static final String SALT = "@ultraisman47035$##%*&";
+    private static final String SALT = "ULTR415M4N@DARTZ2019";
 
     // setters goes here.
     public void setUserAccount(String userAccount) {
         this.userAccount = userAccount;
     }
 
+    public void setLoginTime(String timelog){ this.LoginTime = timelog; }
+
     public void setLoginTime() {
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-        String loginTime = dateFormat.format(date);
-        LoginTime = loginTime;
+        LoginTime = dateFormat.format(date);;
     }
 
     public void setSession(String session) {
@@ -74,5 +75,6 @@ public class AccountLog {
     public String getStatus() {
         return status;
     }
+
 
 }

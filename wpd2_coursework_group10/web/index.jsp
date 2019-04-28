@@ -78,7 +78,7 @@
 
 
 <section class="cover">
-    <img src="landingImage.jpg" alt="landingImage">
+    <img src="images/landingImage.jpg" alt="landingImage">
 </section>
 
 
