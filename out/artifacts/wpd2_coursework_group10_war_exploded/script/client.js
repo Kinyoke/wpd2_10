@@ -17,7 +17,7 @@ setInterval(function () {
     $("#logout-btn").click();
 }, 1000*600);
 
-$("#logout-btn").click(function () {
+$("#SDXC34DF").click(function () {
     var user = sessionStorage.getItem("accuser");
     var session = sessionStorage.getItem("sessionid");
     payload["DATA"] = {"emailAddress" : user, "session" : session };
@@ -27,7 +27,7 @@ $("#logout-btn").click(function () {
 
 function logOut(arg){
     var val = JSON.parse(arg);
-    var lgbtn = $("#SDXC34DFF");
+    var lgbtn = $("#SDXC34DF");
     if (val["response"]["status"] === "INACTIVE"){
         lgbtn.attr("form", "reExdsbn");
         $("#payload").val("INACTIVE");

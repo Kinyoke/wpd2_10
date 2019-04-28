@@ -3,6 +3,7 @@ package net.wpd2_coursework_group10.database;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
@@ -12,6 +13,7 @@ import net.wpd2_coursework_group10.model.AccountLog;
 import net.wpd2_coursework_group10.model.Milestone;
 import net.wpd2_coursework_group10.model.User;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 import javax.json.stream.JsonGenerationException;
 import java.io.IOException;
@@ -186,9 +188,12 @@ public class DatabaseConnector implements DAOinterface{
         cursor = collections.find(eq("userAccount", email)).iterator();
         if (cursor.hasNext()){
             try {
-                while (cursor.hasNext()) if (cursor.next().get("status").equals("ACTIVE")){
-                    cursor.close();
-                    return true; // already looged in
+                while (cursor.hasNext()) {
+                    Document doc = cursor.next();
+                    if (doc.get("status").equals("ACTIVE")){
+                        cursor.close();
+                        return true; // already looged in
+                    }
                 }
                 return false;
             }finally {
@@ -261,7 +266,11 @@ public class DatabaseConnector implements DAOinterface{
     public void updateLogStatus(String email, String session) {
         if (isLogged(email)){
             collections = database.getCollection("AccountLogs");
-            collections.updateOne(eq("userAccount", email), set("status","INACTIVE"));
+            collections.find(eq("userAccount", email));
+            collections.updateOne(eq("status", "ACTIVE"), set("status","INACTIVE"));
+//            collections.updateOne(eq("userAccount", email), set("status","INACTIVE"));
+//            FindIterable<Document> curs = collections.find(eq("userAccount", email));
+//            curs.projection(set("status","INACTIVE").);
         }
 
     }

@@ -122,8 +122,6 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <form novalidate id="reExdsbn" accept-charset="UTF-8"></form>
-
         <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
@@ -134,11 +132,13 @@
                     <a class="nav-link" href="http://localhost:8080/milestone/dashboard">Add Milestone</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" id="logout-btn">Log out</a>
+                    <%--<a class="nav-link" href="#" id="logout-btn">Log out</a>--%>
+
+                    <form novalidate id="reExdsbn" accept-charset="UTF-8"></form>
 
                     <input type="text" hidden form="reExdsbn" name="payload" id="payload">
 
-                    <button id="SDXC34DF" name="SDXC34DF" class="btn btn-block"></button>
+                    <button id="SDXC34DF" name="SDXC34DF" class="btn btn-block">Log out</button>
 
                 </li>
             </ul>
