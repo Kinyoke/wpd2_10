@@ -11,11 +11,74 @@ var payload = {
     "UUID" : "DS34-DFFX-54HH-C4IO"
 };
 
+var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+var actComDate = "", dueDate = "";
+
 
 
 setInterval(function () {
     $("#logout-btn").click();
-}, 1000*600);
+}, 1000*60*30);
+
+var isMenuItemsVisible = false;
+
+$(".m-edt-opts").click(function () {
+    var itemMenuPos = $(".m-edt-opts").index(this);
+    if (!isMenuItemsVisible){
+        $(".opt-menu-items:eq("+itemMenuPos+")").css({"display" : "block"});
+        isMenuItemsVisible = true;
+    }else{
+        $(".opt-menu-items:eq("+itemMenuPos+")").css({"display" : "none"});
+        isMenuItemsVisible = false;
+    }
+});
+
+$(".item-choice-name-em").click(function () {
+    var em_item_index = $(".item-choice-name-em").index(this);
+    $(".opt-menu-items:eq("+em_item_index+")").css({"display" : "none"});
+    // em_item_index+=1;
+    dueDate = $(".due-date:eq("+em_item_index+")").text();
+    var tmp = dueDate.split(" ");
+    for (var i = 0; i < months.length; i++){
+        if (months[i] === tmp[1]){
+            $("#duedate-edit").val((i+1)+"/"+tmp[0]+"/"+tmp[2]);
+            // alert($("#duedate-edit").val());
+            break;
+        }
+    }
+    $("#overlay").css({"display" : "block"});
+    $(".milestone-form-container:eq(1)").css({"display" : "block"});
+    $("#description-edit").val($(".ml-desc:eq("+em_item_index+")").text());
+    isMenuItemsVisible = false;
+});
+
+
+$(".item-choice-name-dm").click(function () {
+    var dm_item_index = $(".item-choice-name-dm").index(this);
+    $(".opt-menu-items:eq("+dm_item_index+")").css({"display" : "none"});
+    // dm_item_index+=1;
+    $("#overlay").css({"display" : "block"});
+    $(".milestone-form-container:eq(2)").css({"display" : "block"});
+    $("#milestone-name").text($(".ml-desc:eq("+dm_item_index+")").text());
+    isMenuItemsVisible = false;
+});
+
+$(".item-choice-name-sm").click(function () {
+
+});
+
+
+
+$("#add-milestone-btn").click(function () {
+    $(".milestone-form-container:eq("+0+")").css({"display" : "block"});
+    $("#overlay").css({"display" : "block"});
+
+});
+
+$(".cancel-btn").click(function () {
+    $(".milestone-form-container").css({"display" : "none"});
+    $("#overlay").css({"display" : "none"});
+});
 
 $("#SDXC34DF").click(function () {
     var user = sessionStorage.getItem("accuser");
@@ -56,8 +119,11 @@ function logIn(arg){
     var val = JSON.parse(arg);
     var lgbtn = $("#login-btn");
 
+    console.log(val);
+
     switch (val["response"]["status"]) {
         case "ACK":
+        case "ACTIVE":
             $("#data-form").val(val["response"]["user"]+","+val["response"]["session"]);
             sessionStorage.setItem("accuser", val["response"]["user"]);
             sessionStorage.setItem("sessionid", val["response"]["session"]);
@@ -142,6 +208,7 @@ function serviceHandler(serviceType, myPayload, callback) {
     xhttp.onreadystatechange = function() {
 
         if (this.readyState === 4 && this.status === 200) {
+            console.log(this.responseText);
             callback(this.responseText);
         }
 

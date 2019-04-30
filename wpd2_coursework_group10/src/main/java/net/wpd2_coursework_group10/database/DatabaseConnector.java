@@ -268,9 +268,6 @@ public class DatabaseConnector implements DAOinterface{
             collections = database.getCollection("AccountLogs");
             collections.find(eq("userAccount", email));
             collections.updateOne(eq("status", "ACTIVE"), set("status","INACTIVE"));
-//            collections.updateOne(eq("userAccount", email), set("status","INACTIVE"));
-//            FindIterable<Document> curs = collections.find(eq("userAccount", email));
-//            curs.projection(set("status","INACTIVE").);
         }
 
     }

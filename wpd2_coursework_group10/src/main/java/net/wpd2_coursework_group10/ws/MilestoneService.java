@@ -51,10 +51,12 @@ public class MilestoneService extends ResourceConfig {
                 break;
             case 2: // already logged in
                 obj_2.put("status", "ACTIVE");
+                obj_2.put("user", email);
+                obj_2.put("session", session);
                 obj_2.put("message", "Already logged in!");
                 obj_1.put("response", obj_2);
                 break;
-            case 3: // already logged in
+            case 3: // wrong password
                 obj_2.put("status", "WPSWD");
                 obj_2.put("message", "wrong password!");
                 obj_1.put("response", obj_2);

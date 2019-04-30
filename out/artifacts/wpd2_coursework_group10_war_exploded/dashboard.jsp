@@ -6,92 +6,22 @@
     <title>Milestoner | Home</title>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendors/bootstrap4/css/bootstrap.css">
 
     <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="vendors/jquery/jquery-3.3.1.js"></script>
 
     <!-- Popper JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="vendors/bootstrap4/js/bootstrap.js"></script>
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="vendors/fontawesome-free-5.4.2-web/css/all.css">
 
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500" rel="stylesheet">
 
-    <style>
-
-
-        .navbar-nav{ margin-left: auto; }
-
-        .form-container-login{ margin-top: 11%; }
-
-        .form-group{ margin-top: 8%; }
-
-        .form-check{ margin-top: 5%; margin-bottom: 7%; color: rgb(70, 70, 70); }
-
-        .search-menu{ float: left; height: 70px; }
-
-        .search-menu-left-item{ height: 50px; float: left;
-
-        }
-
-        .tabs-btn{ height: 40px; width: 247.8px; background-color: rgb(200, 200, 200); float: left; display: inline-block; text-align: center; line-height: 40px; font-weight: bold; color: rgb(130, 130, 130); margin-top: 5px; font-family: 'Ubuntu', sans-serif; border-radius: 8px; transition: .2s; }
-
-        #active-tab{ background-color: rgb(170, 170, 170); color: rgb(100, 100, 100); font-size: 13px; }
-        /*..tabs-btn:nth-child(2){ border-top-left-radius: 0px; borbl }*/
-
-        .tabs-btn:hover{ cursor: pointer ;}
-
-        #main-pane{ margin-top: 60px; }
-
-        /*.milestone-container{ background-color: red; he}*/
-
-        .main-pane-container{ display: inline-block; float: left; }
-
-        .main-pane-left{ height: 350px; width: 15.5%; position: fixed;}
-
-        .main-pane-right{ width: 76%; margin-left: 15.5%;}
-
-        .pg-counter{ height: 350px; width: 2%; background-color: rgb(200, 200, 200); margin-left: 40%; border-radius: 100px;}
-
-        .pg-counter-progress{ height: 95px; width: 100%; background-color: rgb(160, 160, 160); border-radius: 100px; }
-
-        .pg-counter-cr{ height: 15px; width: 15px; background-color: rgb(200, 200, 200); border-radius: 100%; margin-left: -5px; margin-top: 68.5px; }
-
-        .pg-counter-cr:nth-child(1){ margin-top: 0px; background-color: rgb(160, 160, 160); }
-
-        #pg-cr-countainer{ position: absolute; }
-
-        .milestone-pane{ height: 120px; width: 86.9%; border: 1px solid rgb(200, 200, 200); float: left; display: inline-block; margin-bottom: 30px; }
-
-        .milestone-pane-left{ background-color: rgb(200, 200, 200); width: 11.9%; line-height: 120px; text-align: center; font-size: 40px; font-weight: bold; font-family: 'Ubuntu', sans-serif;  color: gray; }
-
-        .m-desc{ height: 60px; font-size: 23px; font-family: sans-serif;  padding-left: 60px; font-weight: bold; color: gray;}
-
-        .m-meta-dt{ height: 60px;  }
-
-        ul{ list-style-type: none; }
-
-        ul li{ float: left; display: inline-block; padding: 0px 10px; color: rgb(90, 90, 90); }
-
-        /*ul li:nth-child(1){ padding: 10px -100px; }*/
-
-        .dot{ height: 10px; width: 10px; background-color: gray; border-radius: 100%; float: left; display: inline-block; margin: 7px 5px; }
-
-        .form-control{
-            border-style: none; border-bottom: 1px solid gray; border-radius: 0px;
-        }
-
-        .form-control:focus{ box-shadow: none; }
-
-        #action-items ul{ list-style-type: none; }
-
-        #action-items ul li{ display: block; float: left;  }
-
-    </style>
+    <link href="style/dashboard.css" rel="stylesheet">
 
 </head>
 <body>
@@ -138,7 +68,7 @@
 
                     <input type="text" hidden form="reExdsbn" name="payload" id="payload">
 
-                    <button id="SDXC34DF" name="SDXC34DF" class="btn btn-block">Log out</button>
+                    <button id="SDXC34DF" name="SDXC34DF" class="btn btn-block"><i class="fa fa-power-off"></i></button>
 
                 </li>
             </ul>
@@ -210,19 +140,19 @@
 
     <div id="main-pane" class="col-lg-12">
 
-        <div class="main-pane-container main-pane-left">
-            <div class="pg-counter">
-                <div class="pg-counter-progress">
-                    <div id="pg-cr-countainer">
-                        <div class="pg-counter-cr"></div>
-                        <div class="pg-counter-cr"></div>
-                        <div class="pg-counter-cr"></div>
-                        <div class="pg-counter-cr"></div>
-                        <div class="pg-counter-cr"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <%--<div class="main-pane-container main-pane-left">--%>
+            <%--<div class="pg-counter">--%>
+                <%--<div class="pg-counter-progress">--%>
+                    <%--<div id="pg-cr-countainer">--%>
+                        <%--<div class="pg-counter-cr"></div>--%>
+                        <%--<div class="pg-counter-cr"></div>--%>
+                        <%--<div class="pg-counter-cr"></div>--%>
+                        <%--<div class="pg-counter-cr"></div>--%>
+                        <%--<div class="pg-counter-cr"></div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+        <%--</div>--%>
 
 
         <div class="main-pane-container main-pane-right">
@@ -241,33 +171,31 @@
                     <div class="m-meta-dt col-lg-12 container">
                         <div class="m-meta-block">
                             <ul>
-                                <li>Author: Jane Doe</li>
-                                <li>Due date: 12 may 2019</li>
-                                <li>Actual completion date: 22 may 2019</li>
+                                <li>Author: <span class="author-name">Jane Doe</span></li>
+                                <li>Due date: <span class="due-date">12 May 2019</span></li>
+                                <li>Actual completion date: <span class="actcomp-date">22 Jun 2019</span></li>
                             </ul>
                         </div>
                         <div class="m-meta-block" style="float: right; margin-right: 65px;">
-                            <div id="m-edt-opts">
-                                <div id="opt-cir-menu">
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
+                            <div class="m-edt-opts">
+                                <div class="opt-cir-menu">
+                                    <i class="fa fa-circle"></i>
+                                    <i class="fa fa-circle"></i>
+                                    <i class="fa fa-circle"></i>
                                 </div>
-                                <div id="opt-content" style="height: 100px; width: 150px; background-color: red;">
-                                    <div id="arr-up"><i class="fa fa-sort-up"></i></div>
-                                    <div id="action-items">
-                                        <ul>
-                                            <li>Edit Milestone</li>
-                                            <li>Delete Milestone</li>
-                                            <li>Share Milestone</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                            </div>
+                        </div>
+
+                        <div class="opt-menu-items">
+                            <div class="arr-up-pt"><i class="fa fa-sort-up"></i></div>
+                            <div class="items">
+                                <div class="item-choice"><span class="item-choice-name item-choice-name-em">Edit milestone</span></div>
+                                <div class="item-choice"><span class="item-choice-name item-choice-name-dm">Delete milestone</span></div>
+                                <div class="item-choice"><span class="item-choice-name item-choice-name-sm">Share milestone</span></div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
 
 
@@ -285,19 +213,27 @@
                     <div class="m-meta-dt col-lg-12 container">
                         <div class="m-meta-block">
                             <ul>
-                                <li>Author: John Doe</li>
-                                <li>Due date: 12 may 2019</li>
-                                <li>Actual completion date: 22 may 2019</li>
+                                <li>Author: <span class="author-name">John Doe</span></li>
+                                <li>Due date: <span class="due-date">22 Jan 2019</span></li>
+                                <li>Actual completion date: <span class="actcomp-date">22 Feb 2019</span></li>
                             </ul>
                         </div>
                         <div class="m-meta-block" style="float: right; margin-right: 65px;">
-                            <div id="m-edt-opts">
-                                <div id="opt-cir-menu">
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
+                            <div class="m-edt-opts">
+                                <div class="opt-cir-menu">
+                                    <i class="fa fa-circle"></i>
+                                    <i class="fa fa-circle"></i>
+                                    <i class="fa fa-circle"></i>
                                 </div>
-                                <div id="opt-content"></div>
+                            </div>
+                        </div>
+
+                        <div class="opt-menu-items">
+                            <div class="arr-up-pt"><i class="fa fa-sort-up"></i></div>
+                            <div class="items">
+                                <div class="item-choice"><span class="item-choice-name item-choice-name-em">Edit milestone</span></div>
+                                <div class="item-choice"><span class="item-choice-name item-choice-name-dm">Delete milestone</span></div>
+                                <div class="item-choice"><span class="item-choice-name item-choice-name-sm">Share milestone</span></div>
                             </div>
                         </div>
                     </div>
@@ -319,19 +255,27 @@
                     <div class="m-meta-dt col-lg-12 container">
                         <div class="m-meta-block">
                             <ul>
-                                <li>Author: Jane Doe</li>
-                                <li>Due date: 12 may 2019</li>
-                                <li>Actual completion date: 22 may 2019</li>
+                                <li>Author: <span class="author-name">Jane Doe</span></li>
+                                <li>Due date: <span class="due-date">03 Mar 2019</span></li>
+                                <li>Actual completion date: <span class="actcomp-date">07 Mar 2019</span></li>
                             </ul>
                         </div>
                         <div class="m-meta-block" style="float: right; margin-right: 65px;">
-                            <div id="m-edt-opts">
-                                <div id="opt-cir-menu">
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
+                            <div class="m-edt-opts">
+                                <div class="opt-cir-menu">
+                                    <i class="fa fa-circle"></i>
+                                    <i class="fa fa-circle"></i>
+                                    <i class="fa fa-circle"></i>
                                 </div>
-                                <div id="opt-content"></div>
+                            </div>
+                        </div>
+
+                        <div class="opt-menu-items">
+                            <div class="arr-up-pt"><i class="fa fa-sort-up"></i></div>
+                            <div class="items">
+                                <div class="item-choice"><span class="item-choice-name item-choice-name-em">Edit milestone</span></div>
+                                <div class="item-choice"><span class="item-choice-name item-choice-name-dm">Delete milestone</span></div>
+                                <div class="item-choice"><span class="item-choice-name item-choice-name-sm">Share milestone</span></div>
                             </div>
                         </div>
                     </div>
@@ -353,19 +297,27 @@
                     <div class="m-meta-dt col-lg-12 container">
                         <div class="m-meta-block">
                             <ul>
-                                <li>Author: Jane Doe</li>
-                                <li>Due date: 12 may 2019</li>
-                                <li>Actual completion date: 22 may 2019</li>
+                                <li>Author: <span class="author-name">Jane Doe</span></li>
+                                <li>Due date: <span class="due-date">12 Oct 2019</span></li>
+                                <li>Actual completion date: <span class="actcomp-date">04 Feb 2020</span></li>
                             </ul>
                         </div>
                         <div class="m-meta-block" style="float: right; margin-right: 65px;">
-                            <div id="m-edt-opts">
-                                <div id="opt-cir-menu">
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
+                            <div class="m-edt-opts">
+                                <div class="opt-cir-menu">
+                                    <i class="fa fa-circle"></i>
+                                    <i class="fa fa-circle"></i>
+                                    <i class="fa fa-circle"></i>
                                 </div>
-                                <div id="opt-content"></div>
+                            </div>
+                        </div>
+
+                        <div class="opt-menu-items">
+                            <div class="arr-up-pt"><i class="fa fa-sort-up"></i></div>
+                            <div class="items">
+                                <div class="item-choice"><span class="item-choice-name item-choice-name-em">Edit milestone</span></div>
+                                <div class="item-choice"><span class="item-choice-name item-choice-name-dm">Delete milestone</span></div>
+                                <div class="item-choice"><span class="item-choice-name item-choice-name-sm">Share milestone</span></div>
                             </div>
                         </div>
                     </div>
@@ -378,6 +330,80 @@
 
     </div>
 
+</div>
+
+<div id="overlay">
+    <form id="milestone-form" accept-charset="UTF-8"></form>
+    <%--create milestone--%>
+    <div class="milestone-form-container" id="milestone-form-container-active">
+        <div class="m-form-headr">
+            <div class="cancel-btn-holder"><span><i class="fa fa-plus cancel-btn"></i></span></div>
+            <div>
+                <h3 class="act-mile-header">Add Milestone</h3>
+            </div>
+        </div>
+        <div class="milestone-create-form">
+            <label for="author-create">Author</label>
+            <input type="text" id="author-create" name="author-create" value="John Doe" disabled class="form-control">
+            <label for="duedate-create">Due date</label>
+            <input type="date" name="duedate-create" id="duedate-create" class="form-control">
+            <label for="actualdate-create">Actual complition date</label>
+            <input type="date" name="actualdate-create" id="actualdate-create" class="form-control">
+            <label for="description-create">Milestone description</label>
+            <textarea name="description-create" id="description-create" class="form-control"></textarea>
+        </div>
+        <div class="m-form-footer">
+            <button id="create-milestone" class="btn btn-block btn-info">Create milestone</button>
+        </div>
+    </div>
+
+    <div class="milestone-form-container">
+        <div class="m-form-headr">
+            <div class="cancel-btn-holder"><span><i class="fa fa-plus cancel-btn"></i></span></div>
+            <div>
+                <h3 class="act-mile-header">Edit Milestone</h3>
+            </div>
+        </div>
+        <div class="milestone-create-form">
+            <label for="author-edit">Author</label>
+            <input type="text" id="author-edit" name="author-edit" value="John Doe" disabled class="form-control">
+            <label for="duedate-edit">Due date</label>
+            <input type="date" name="duedate-edit" id="duedate-edit" class="form-control">
+            <label for="actualdate-edit">Actual complition date</label>
+            <input type="date" name="actualdate-edit" id="actualdate-edit" class="form-control">
+            <label for="description-edit">Milestone description</label>
+            <textarea name="description-edit" id="description-edit" class="form-control"></textarea>
+        </div>
+        <div class="m-form-footer">
+            <button id="edit-milestone" class="btn btn-block btn-info">Save milestone</button>
+        </div>
+    </div>
+
+    <div class="milestone-form-container" style="margin-top: 14%;">
+
+        <div class="m-form-headr">
+            <div class="cancel-btn-holder"><span><i class="fa fa-plus cancel-btn"></i></span></div>
+            <div>
+                <h3 class="act-mile-header">Delete Milestone</h3>
+            </div>
+        </div>
+
+        <div class="milestone-create-form">
+            <p>Are you sure you want to delete Milestone "<span id="milestone-name">this milestone</span>" This action can to be undone!</p>
+        </div>
+
+        <div class="m-form-footer">
+            <button id="delete-milestone" class="btn btn-block btn-danger">Delete milestone</button>
+        </div>
+    </div>
+
+
+</div>
+
+<div id="add-milestone">
+    <div id="add-milestone-btn">
+        <i class="fa fa-plus"></i>
+    </div>
 </div>
 
 

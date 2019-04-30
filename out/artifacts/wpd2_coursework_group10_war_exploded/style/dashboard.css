@@ -1,0 +1,112 @@
+.navbar-nav{ margin-left: auto;}
+
+.form-container-login{ margin-top: 11%; }
+
+.form-group{ margin-top: 8%; }
+
+.form-check{ margin-top: 5%; margin-bottom: 7%; color: rgb(70, 70, 70); }
+
+.search-menu{ float: left; height: 70px; }
+
+.search-menu-left-item{ height: 50px; float: left;
+
+}
+
+.tabs-btn{ height: 40px; width: 247.8px; background-color: rgb(200, 200, 200); float: left; display: inline-block; text-align: center; line-height: 40px; font-weight: bold; color: rgb(130, 130, 130); margin-top: 5px; font-family: 'Ubuntu', sans-serif; border-radius: 8px; transition: .2s; }
+
+#active-tab{ background-color: rgb(170, 170, 170); color: rgb(100, 100, 100); font-size: 13px; }
+/*..tabs-btn:nth-child(2){ border-top-left-radius: 0px; borbl }*/
+
+.tabs-btn:hover{ cursor: pointer ;}
+
+#main-pane{ margin-top: 60px; }
+
+/*.milestone-container{ background-color: red; he}*/
+
+.main-pane-container{ display: inline-block; float: left; }
+
+.main-pane-left{ height: 350px; width: 15.5%; position: fixed;}
+
+.main-pane-right{ width: 76%; margin-left: 15.5%;}
+
+.pg-counter{ height: 350px; width: 2%; background-color: rgb(200, 200, 200); margin-left: 40%; border-radius: 100px;}
+
+.pg-counter-progress{ height: 95px; width: 100%; background-color: rgb(160, 160, 160); border-radius: 100px; }
+
+.pg-counter-cr{ height: 15px; width: 15px; background-color: rgb(200, 200, 200); border-radius: 100%; margin-left: -5px; margin-top: 68.5px; }
+
+.pg-counter-cr:nth-child(1){ margin-top: 0px; background-color: rgb(160, 160, 160); }
+
+#pg-cr-countainer{ position: absolute; }
+
+.milestone-pane{ height: 120px; width: 86.9%; border: 1px solid rgb(200, 200, 200); float: left; display: inline-block; margin-bottom: 30px; }
+
+.milestone-pane-left{ background-color: rgb(200, 200, 200); width: 11.9%; line-height: 120px; text-align: center; font-size: 40px; font-weight: bold; font-family: 'Ubuntu', sans-serif;  color: gray; }
+
+.m-desc{ height: 60px; font-size: 23px; font-family: sans-serif;  padding-left: 60px; font-weight: bold; color: gray; z-index: -10; }
+
+.m-meta-dt{ height: 60px; margin-left: -15px; }
+
+.m-meta-block ul{ list-style-type: none; }
+
+.m-meta-block ul li{ float: left; display: inline; color: rgb(90, 90, 90); padding: 0px 20px; }
+
+.m-meta-block ul li:nth-child(1){ padding: 0px -10px; }
+
+.form-control{ margin-bottom: 15px;}
+
+#keyword, #m-id{ border:none; border-bottom: 1px solid gray; border-radius: 0px; }
+
+#keyword:focus, #m-id:focus{ box-shadow: none; }
+
+#add-milestone{ position: fixed; bottom: 0; right: 0; margin-right: 35px; }
+
+.fa-circle{ color: rgb(100, 100, 100); font-size: 10px;}
+
+.fa-circle:hover, .opt-cir-menu:hover, .m-edt-opts:hover{ cursor: pointer; }
+
+.arr-up-pt{ font-size: 25px; text-align: right; }
+
+.items{ background-color: white; border: 1px solid rgb(220, 220, 220); margin-top: -20px; }
+
+.opt-menu-items{ width: 160px; float: right; margin-right: 65px; display: none; }
+
+#add-milestone-btn{ height: 50px; width: 50px; margin-bottom: 10px; text-align: center; line-height: 45px; background-color: #005cbf; border-radius: 100%; border: 4px solid rgb(180, 180, 180); }
+
+.fa-plus{ font-size: 20px; color: white; }
+
+#add-milestone-btn:hover, .fa-plus:hover { cursor: pointer; }
+
+#SDXC34DF{ border-radius: 100%; border: 3px solid rgb(200, 200, 200); height: 45px; width: 45px; }
+
+.fa-power-off{ color: gray; font-weight: bold; font-size: 20px; margin-left: -2px; margin-top: 3px; }
+
+#overlay{ height: 100%; width: 100%; position: fixed; left: 0; top: 0; background-color: rgba(30, 30, 30, 0.6); display: none; z-index: 100; }
+
+#overlay:hover{ cursor: pointer; }
+
+.milestone-form-container{ width: 30%; margin: auto; margin-top: 2%; background-color: white; display: none; }
+
+/*#milestone-form-container-active{ display: block; }*/
+
+.item-choice{ width: 100%; height: 35px; line-height: 35px; border-bottom: 1px solid rgb(200, 200, 200); color: rgb(30, 30, 30); margin-top: 0px; }
+
+.item-choice:hover{ cursor: pointer; background-color: rgb(230, 230, 230); }
+
+.item-choice-name{ margin-left: 15px; }
+
+.milestone-create-form{ width: 90%; margin: auto; margin-top: 4%; background-color: white;}
+
+.m-form-headr{ height: 100px; background-color: white; border-bottom: 2px solid rgb(220, 220, 220); }
+
+.act-mile-header{ text-align: center; font-weight: bold; font-size: 28px; color: gray; margin-top: 10px; }
+
+.cancel-btn-holder{ text-align: right; margin-right: 15px; }
+
+.cancel-btn{ color: gray; transform: rotate(45deg); margin-top: 15px; }
+
+#milestone-name{ font-style: italic; font-size: 13px; }
+
+.m-form-footer{ width: 100%; height: 65px; }
+
+#create-milestone, #edit-milestone, #delete-milestone{ width: 90%; margin: auto; margin-top: 35px; height: 45px; }
