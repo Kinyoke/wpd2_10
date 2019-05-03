@@ -1,9 +1,5 @@
 package net.wpd2_coursework_group10.database;
 
-
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
@@ -13,14 +9,12 @@ import net.wpd2_coursework_group10.model.AccountLog;
 import net.wpd2_coursework_group10.model.Milestone;
 import net.wpd2_coursework_group10.model.User;
 import org.bson.Document;
-import org.bson.conversions.Bson;
 
-import javax.json.stream.JsonGenerationException;
-import java.io.IOException;
+import java.awt.peer.SystemTrayPeer;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.mongodb.client.model.Filters.eq;
-import static com.mongodb.client.model.Projections.excludeId;
 import static com.mongodb.client.model.Updates.set;
 
 public class DatabaseConnector implements DAOinterface{
@@ -74,7 +68,7 @@ public class DatabaseConnector implements DAOinterface{
         // Retieving and creating a collection if not available
         System.out.println("Creating collection...");
         int pointer = 0;
-        String myCollection[] = {"Account", "Milestones", "AccountLogs"};
+        String[] myCollection = {"Account", "Milestones", "AccountLogs"};
         for (String name : database.listCollectionNames()) {
             if (name.equals(myCollection[pointer])){
                 myCollection[pointer] = null;
@@ -82,11 +76,8 @@ public class DatabaseConnector implements DAOinterface{
             }
         }
 
-        if (pointer < myCollection.length-1){
-            for (int j = 0; j < myCollection.length; j++) {
-                if (!myCollection[j].equals(null)) database.createCollection(myCollection[j]);
-            }
-        }
+        if (pointer < myCollection.length-1) for (String s : myCollection) if (s != null) database.createCollection(s);
+
         System.out.println("Collection created successfully");
     }
 
@@ -104,15 +95,28 @@ public class DatabaseConnector implements DAOinterface{
         System.out.println("Document inserted successfully");
     }
 
-    public void insertMilestone(Milestone milestone){
+    public boolean insertMilestone(Milestone milestone, String userEmail, String description){
         // Retrieving a collection
         System.out.println("Selecting a collection Milestone...");
         collections = database.getCollection("Milestones");
-        Document document = new Document().append("Author", milestone.getAuthor()).append("Description", milestone.getDescription()).append("dueDate", milestone.getDueDate()).append("actualCompDate", milestone.getActualCompletionDate()).append("user", milestone.getUser()).append("status", milestone.getStatus());
+        MongoCursor<Document> cursor = collections.find(eq("user", userEmail)).iterator();
+        try{
+            while (cursor.hasNext()){
+                Document cursorData = cursor.next();
+                if (cursorData.get("Description").equals(description)) return false;
+            }
+        }finally {
+            cursor.close();
+        }
+        int id = getCollectionCount("Milestones", "user", userEmail);
+        id+=1;
+        Document document = new Document().append("milestoneId", id).append("Author", milestone.getAuthor()).append("Description", milestone.getDescription()).append("dueDate", milestone.getDueDate()).append("actualCompDate", milestone.getActualCompletionDate()).append("user", milestone.getUser()).append("status", "PENDING");
         System.out.println("Inserting document into a collection...");
         // insert into a collection
         collections.insertOne(document);
         System.out.println("Document inserted successfully");
+
+        return true;
     }
 
     public void insertLogs(AccountLog accountLog){
@@ -129,11 +133,14 @@ public class DatabaseConnector implements DAOinterface{
 
     private void run(){ initConnection(); createCollection(); }
 
-    public int getCollectionCount(String collectionName){
+    public int getCollectionCount(String collectionName){ return (int) database.getCollection(collectionName).countDocuments(); }
 
-        return (int) database.getCollection(collectionName).count();
+    public int getCollectionCount(String collectionName, String fieldName, String value){
+        collections = database.getCollection(collectionName);
+        collections.find(eq(fieldName, value));
+        collections.countDocuments();
+        return (int) collections.countDocuments();
     }
-
 
     public int varifyUser(String email, String password) {
         AccountLog accountLog = new AccountLog();
@@ -181,6 +188,23 @@ public class DatabaseConnector implements DAOinterface{
             }
         }
         return 0;
+    }
+
+
+    public String[] getUserNames(String email){
+        String[] names = new String[3];
+        collections = database.getCollection("Account");
+        MongoCursor<Document> cursor = collections.find(eq("emailAddress", email)).iterator();
+        try {
+            while (cursor.hasNext()) {
+                Document cdata = cursor.next();
+                names[0] = cdata.get("firstName").toString();
+                names[1] = cdata.get("middleName").toString();
+            }
+        }finally {
+            cursor.close();
+        }
+        return names;
     }
 
     public boolean isLogged(String email) {
@@ -242,6 +266,73 @@ public class DatabaseConnector implements DAOinterface{
         return  false;
     }
 
+
+    public Milestone getMilestone(String userEmail, int id){
+        Milestone milestone = new Milestone();
+        collections = database.getCollection("Milestones");
+        MongoCursor<Document> cursor = collections.find(eq("user", userEmail)).iterator();
+        try{
+            while (cursor.hasNext()){
+                Document cursorData = cursor.next();
+                if (cursorData.getInteger("milestoneId") == id){
+                    milestone.setMilestoneId(cursorData.getInteger("milestoneId"));
+                    milestone.setAuthor(cursorData.getString("Author"));
+                    milestone.setUser(cursorData.getString("user"));
+                    milestone.setDueDate(cursorData.getString("dueDate"));
+                    milestone.setActualCompletionDate(cursorData.getString("actualCompDate"));
+                    milestone.setDescription(cursorData.getString("Description"));
+                    milestone.setStatus(cursorData.getString("status"));
+                    break;
+                }
+            }
+        }finally {
+            cursor.close();
+        }
+
+        return milestone;
+    }
+
+    public void deleteMilestone(String user, int id){
+        collections = database.getCollection("Milestones");
+        MongoCursor<Document> cursor = collections.find(eq("user", user)).iterator();
+        try {
+            while (cursor.hasNext()){
+                Document dcursor = cursor.next();
+                if (dcursor.getInteger("milestoneId") == id){
+                    System.out.println("object id : "+dcursor.getObjectId("_id"));
+                }
+            }
+        }finally {
+            cursor.close();
+        }
+//        collections.find(eq("milestoneId",id));
+    }
+
+    public List<Milestone> getMilestoneList(String userEmail){
+        Milestone milestone = null;
+        List<Milestone> milestoneList = new ArrayList<Milestone>();
+        collections = database.getCollection("Milestones");
+        MongoCursor<Document> cursor = collections.find(eq("user", userEmail)).iterator();
+        try{
+            while (cursor.hasNext()){
+                Document cursorData = cursor.next();
+                milestone = new Milestone();
+                milestone.setMilestoneId(cursorData.getInteger("milestoneId"));
+                milestone.setAuthor(cursorData.getString("Author"));
+                milestone.setUser(cursorData.getString("user"));
+                milestone.setDueDate(cursorData.getString("dueDate"));
+                milestone.setActualCompletionDate(cursorData.getString("actualCompDate"));
+                milestone.setDescription(cursorData.getString("Description"));
+                milestone.setStatus(cursorData.getString("status"));
+                milestoneList.add(milestone);
+            }
+        }finally {
+            cursor.close();
+        }
+
+        return milestoneList;
+    }
+
     public String getSessionId(String email) {
 //        if (isLogged(email)){
             collections = database.getCollection("AccountLogs");
@@ -249,10 +340,8 @@ public class DatabaseConnector implements DAOinterface{
             try {
                 while (cursor.hasNext()) {
                     Document ncursor =  cursor.next();
-                    if (ncursor.get("status").equals("ACTIVE")) {
-                        String val = ncursor.get("session").toString();
-                        return val;
-                    }
+                    if (ncursor.get("status").equals("ACTIVE")) return ncursor.get("session").toString();
+
                 }
             }finally {
                 cursor.close();

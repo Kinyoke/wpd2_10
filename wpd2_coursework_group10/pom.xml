@@ -153,6 +153,10 @@
             <artifactId>json</artifactId>
             <version>20180813</version>
         </dependency>
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-netty-http</artifactId>
+        </dependency>
 
 
         <!--<dependency>-->

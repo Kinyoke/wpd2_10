@@ -77,7 +77,7 @@ public class MilestoneList implements MilestoneListInterface<Milestone> {
 
             for(int i = 0; i < this.length(); i++)
             {
-                if(this.HEAD.getData().getId() == id) {
+                if(this.HEAD.getData().getMilestoneId() == id) {
                     System.out.println("[INFO] -> Removing Milestone "+this.getHead().getData().getDescription());
                     this.getHead().getPrevious().setNext(getHead().getNext());
                     this.getHead().getNext().setPrevious(getHead().getPrevious());
@@ -101,7 +101,7 @@ public class MilestoneList implements MilestoneListInterface<Milestone> {
 
     public Milestone search(int milestoneID) {
         for(int i = 0; i < this.length; i++) {
-            if(this.HEAD.getData().getId() == milestoneID) { return this.getHead().getData(); }
+            if(this.HEAD.getData().getMilestoneId() == milestoneID) { return this.getHead().getData(); }
             this.setHead(HEAD.getNext());
 
         }
@@ -152,7 +152,7 @@ public class MilestoneList implements MilestoneListInterface<Milestone> {
 
             System.out.println(
 
-                            "Milestone ID: "+this.HEAD.getData().getId()+"\n" +
+                            "Milestone ID: "+this.HEAD.getData().getMilestoneId()+"\n" +
                             "Milestone Description: "+this.HEAD.getData().getDescription()+"\n" +
                             "Milestone Author: "+this.HEAD.getData().getAuthor()+"\n"+
                             "Milestone Duedate: "+this.HEAD.getData().getDueDate()+"\n" +

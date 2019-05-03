@@ -41,8 +41,7 @@ public class User {
 
     @Override
     public String toString() {
-        return new StringBuffer(" FirstName: ").append(this.firstName).append(" middleName: ").append(this.middleName)
-                .append(" lastName: ").append(this.lastName).append(" emailAddress: ").append(this.emailAddress).append(" password: ")
-                .append(this.password).toString();
+        return " FirstName : "+this.firstName+" middleName : "+this.middleName+" lastName : "+this.lastName+" emailAddress : "+
+                this.emailAddress+" password : "+this.password;
     }
 }

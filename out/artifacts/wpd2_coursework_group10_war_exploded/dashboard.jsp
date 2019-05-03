@@ -3,7 +3,13 @@
 <head lang="en">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Milestoner | Home</title>
+    <title>Milestoner | Dashboard</title>
+
+    <meta property="og:url"           content="http://localhost:8080/milestone/dashboard" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="Milestoner" />
+    <meta property="og:description"   content="Milestoner, helps you track and manage your goals with easy!" />
+    <meta property="og:image"         content="https://www.your-domain.com/path/image.jpg" />
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="vendors/bootstrap4/css/bootstrap.css">
@@ -40,7 +46,7 @@
 %>
 
 
-<nav class="navbar navbar-expand-md bg-light navbar-light">
+<nav class="navbar navbar-expand-md bg-light navbar-light" style="position: fixed; width: 100%; z-index: 1000;">
 
     <div class="container">
 
@@ -93,6 +99,8 @@
 
 
 <div id="main">
+
+    <div id="init-banner">Milestone dashboard!</div>
 
     <div class="container" id="search-menu-lg" style="margin-top: 50px;">
 
@@ -154,183 +162,24 @@
             <%--</div>--%>
         <%--</div>--%>
 
+        <div class="main-pane-container main-pane-right"></div>
 
-        <div class="main-pane-container main-pane-right">
-
-            <div class="milestone-container">
-
-                <div class="milestone-pane milestone-pane-left">
-                    <span class="id-ml">1</span>
-                </div>
-
-
-                <div class="milestone-pane milestone-pane-right">
-                    <div class="m-desc col-lg-12 container">
-                        <span class="ml-desc">Clean and drinkable water is possible to all citizens of wakanda!</span>
-                    </div>
-                    <div class="m-meta-dt col-lg-12 container">
-                        <div class="m-meta-block">
-                            <ul>
-                                <li>Author: <span class="author-name">Jane Doe</span></li>
-                                <li>Due date: <span class="due-date">12 May 2019</span></li>
-                                <li>Actual completion date: <span class="actcomp-date">22 Jun 2019</span></li>
-                            </ul>
-                        </div>
-                        <div class="m-meta-block" style="float: right; margin-right: 65px;">
-                            <div class="m-edt-opts">
-                                <div class="opt-cir-menu">
-                                    <i class="fa fa-circle"></i>
-                                    <i class="fa fa-circle"></i>
-                                    <i class="fa fa-circle"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="opt-menu-items">
-                            <div class="arr-up-pt"><i class="fa fa-sort-up"></i></div>
-                            <div class="items">
-                                <div class="item-choice"><span class="item-choice-name item-choice-name-em">Edit milestone</span></div>
-                                <div class="item-choice"><span class="item-choice-name item-choice-name-dm">Delete milestone</span></div>
-                                <div class="item-choice"><span class="item-choice-name item-choice-name-sm">Share milestone</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div id="more-milestone-btn">
+                <button>
+                    <i class="fa fa-angle-double-down"></i>
+                </button>
             </div>
 
 
-            <div class="milestone-container">
-
-                <div class="milestone-pane milestone-pane-left">
-                    <span class="id-ml">2</span>
-                </div>
-
-
-                <div class="milestone-pane milestone-pane-right">
-                    <div class="m-desc col-lg-12 container">
-                        <span class="ml-desc">I believe humans will colonize planet mars some days to come, I hope it not too far.</span>
-                    </div>
-                    <div class="m-meta-dt col-lg-12 container">
-                        <div class="m-meta-block">
-                            <ul>
-                                <li>Author: <span class="author-name">John Doe</span></li>
-                                <li>Due date: <span class="due-date">22 Jan 2019</span></li>
-                                <li>Actual completion date: <span class="actcomp-date">22 Feb 2019</span></li>
-                            </ul>
-                        </div>
-                        <div class="m-meta-block" style="float: right; margin-right: 65px;">
-                            <div class="m-edt-opts">
-                                <div class="opt-cir-menu">
-                                    <i class="fa fa-circle"></i>
-                                    <i class="fa fa-circle"></i>
-                                    <i class="fa fa-circle"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="opt-menu-items">
-                            <div class="arr-up-pt"><i class="fa fa-sort-up"></i></div>
-                            <div class="items">
-                                <div class="item-choice"><span class="item-choice-name item-choice-name-em">Edit milestone</span></div>
-                                <div class="item-choice"><span class="item-choice-name item-choice-name-dm">Delete milestone</span></div>
-                                <div class="item-choice"><span class="item-choice-name item-choice-name-sm">Share milestone</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <div id="footer">
+                <span id="footer-text">Copyright &copy 2019 by Milestoner.net</span>
             </div>
-
-            <div class="milestone-container">
-
-                <div class="milestone-pane milestone-pane-left">
-                    <span class="id-ml">3</span>
-                </div>
-
-
-                <div class="milestone-pane milestone-pane-right">
-                    <div class="m-desc col-lg-12 container">
-                        <span class="ml-desc">Clean and drinkable water is possible to all citizens of wakanda!</span>
-                    </div>
-                    <div class="m-meta-dt col-lg-12 container">
-                        <div class="m-meta-block">
-                            <ul>
-                                <li>Author: <span class="author-name">Jane Doe</span></li>
-                                <li>Due date: <span class="due-date">03 Mar 2019</span></li>
-                                <li>Actual completion date: <span class="actcomp-date">07 Mar 2019</span></li>
-                            </ul>
-                        </div>
-                        <div class="m-meta-block" style="float: right; margin-right: 65px;">
-                            <div class="m-edt-opts">
-                                <div class="opt-cir-menu">
-                                    <i class="fa fa-circle"></i>
-                                    <i class="fa fa-circle"></i>
-                                    <i class="fa fa-circle"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="opt-menu-items">
-                            <div class="arr-up-pt"><i class="fa fa-sort-up"></i></div>
-                            <div class="items">
-                                <div class="item-choice"><span class="item-choice-name item-choice-name-em">Edit milestone</span></div>
-                                <div class="item-choice"><span class="item-choice-name item-choice-name-dm">Delete milestone</span></div>
-                                <div class="item-choice"><span class="item-choice-name item-choice-name-sm">Share milestone</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="milestone-container">
-
-                <div class="milestone-pane milestone-pane-left">
-                    <span class="id-ml">4</span>
-                </div>
-
-
-                <div class="milestone-pane milestone-pane-right">
-                    <div class="m-desc col-lg-12 container">
-                        <span class="ml-desc">Clean and drinkable water is possible to all citizens of wakanda!</span>
-                    </div>
-                    <div class="m-meta-dt col-lg-12 container">
-                        <div class="m-meta-block">
-                            <ul>
-                                <li>Author: <span class="author-name">Jane Doe</span></li>
-                                <li>Due date: <span class="due-date">12 Oct 2019</span></li>
-                                <li>Actual completion date: <span class="actcomp-date">04 Feb 2020</span></li>
-                            </ul>
-                        </div>
-                        <div class="m-meta-block" style="float: right; margin-right: 65px;">
-                            <div class="m-edt-opts">
-                                <div class="opt-cir-menu">
-                                    <i class="fa fa-circle"></i>
-                                    <i class="fa fa-circle"></i>
-                                    <i class="fa fa-circle"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="opt-menu-items">
-                            <div class="arr-up-pt"><i class="fa fa-sort-up"></i></div>
-                            <div class="items">
-                                <div class="item-choice"><span class="item-choice-name item-choice-name-em">Edit milestone</span></div>
-                                <div class="item-choice"><span class="item-choice-name item-choice-name-dm">Delete milestone</span></div>
-                                <div class="item-choice"><span class="item-choice-name item-choice-name-sm">Share milestone</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-
-        </div>
 
     </div>
 
+
 </div>
+
 
 <div id="overlay">
     <form id="milestone-form" accept-charset="UTF-8"></form>
@@ -344,7 +193,7 @@
         </div>
         <div class="milestone-create-form">
             <label for="author-create">Author</label>
-            <input type="text" id="author-create" name="author-create" value="John Doe" disabled class="form-control">
+            <input type="text" id="author-create" name="author-create" disabled class="form-control">
             <label for="duedate-create">Due date</label>
             <input type="date" name="duedate-create" id="duedate-create" class="form-control">
             <label for="actualdate-create">Actual complition date</label>
@@ -366,11 +215,17 @@
         </div>
         <div class="milestone-create-form">
             <label for="author-edit">Author</label>
-            <input type="text" id="author-edit" name="author-edit" value="John Doe" disabled class="form-control">
+            <input type="text" id="author-edit" name="author-edit" disabled class="form-control">
             <label for="duedate-edit">Due date</label>
             <input type="date" name="duedate-edit" id="duedate-edit" class="form-control">
             <label for="actualdate-edit">Actual complition date</label>
             <input type="date" name="actualdate-edit" id="actualdate-edit" class="form-control">
+            <select id="edit-mstatus" class="form-control">
+                <option>Select a status of this milestone</option>
+                <option>complete</option>
+                <option>incoplete</option>
+                <option>pending</option>
+            </select>
             <label for="description-edit">Milestone description</label>
             <textarea name="description-edit" id="description-edit" class="form-control"></textarea>
         </div>
@@ -406,13 +261,25 @@
     </div>
 </div>
 
+<!-- Load Facebook SDK for JavaScript -->
+<%--<div id="fb-root"></div>--%>
+<%--<script>(function(d, s, id) {--%>
+    <%--var js, fjs = d.getElementsByTagName(s)[0];--%>
+    <%--if (d.getElementById(id)) return;--%>
+    <%--js = d.createElement(s); js.id = id;--%>
+    <%--js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";--%>
+    <%--fjs.parentNode.insertBefore(js, fjs);--%>
+<%--}(document, 'script', 'facebook-jssdk'));</script>--%>
 
-<!-- <div id="footer" style="height: 70px; width: 100%; background-color: rgb(200, 200, 200); text-align: center; line-height: 70px;">
-    <p id="footer-text" style="color: rgb(100, 100, 100); font-size: 13px; font-family: arial;">Copyright &copy 2019 by Milestoner.net</p>
-</div>
--->
-<script src="script/dashboard.js"></script>
+<!-- Your share button code -->
+<%--<div class="fb-share-button"--%>
+     <%--data-href="https://www.your-domain.com/your-page.html"--%>
+     <%--data-layout="button_count">--%>
+<%--</div>--%>
+
+
 <script src="script/client.js"></script>
+<script src="script/dashboard.js"></script>
 
 </body>
 </html>
