@@ -5,6 +5,8 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoCredential;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
 import net.wpd2_coursework_group10.model.AccountLog;
 import net.wpd2_coursework_group10.model.Milestone;
 import net.wpd2_coursework_group10.model.User;
@@ -110,7 +112,7 @@ public class DatabaseConnector implements DAOinterface{
         }
         int id = getCollectionCount("Milestones", "user", userEmail);
         id+=1;
-        Document document = new Document().append("milestoneId", id).append("Author", milestone.getAuthor()).append("Description", milestone.getDescription()).append("dueDate", milestone.getDueDate()).append("actualCompDate", milestone.getActualCompletionDate()).append("user", milestone.getUser()).append("status", "PENDING");
+        Document document = new Document().append("milestoneId", id).append("Author", milestone.getAuthor()).append("Description", milestone.getDescription()).append("dueDate", milestone.getDueDate()).append("actualCompDate", milestone.getActualCompletionDate()).append("user", milestone.getUser()).append("status", "pending");
         System.out.println("Inserting document into a collection...");
         // insert into a collection
         collections.insertOne(document);
@@ -292,20 +294,50 @@ public class DatabaseConnector implements DAOinterface{
         return milestone;
     }
 
+    public void updateId(String collectionName, String user){
+        collections = database.getCollection(collectionName);
+        MongoCursor<Document> cursor = collections.find(eq("user", user)).iterator();
+        int i = 1;
+        try {
+            int colLength = getCollectionCount(collectionName, "user", user);
+            while (cursor.hasNext()){
+                int mid = cursor.next().getInteger("milestoneId");
+                collections.updateOne(Filters.eq("milestoneId", mid), Updates.set("milestoneId", (i)));
+                i++;
+            }
+        }finally {
+            cursor.close();
+        }
+    }
+
     public void deleteMilestone(String user, int id){
+        collections = database.getCollection("Milestones");
+        collections.find(eq("user", user));
+        collections.deleteOne(Filters.eq("milestoneId", id));
+        updateId("Milestones", user);
+    }
+
+    public void updateMilestone(Milestone milestone, String user, int id){
         collections = database.getCollection("Milestones");
         MongoCursor<Document> cursor = collections.find(eq("user", user)).iterator();
         try {
             while (cursor.hasNext()){
-                Document dcursor = cursor.next();
-                if (dcursor.getInteger("milestoneId") == id){
-                    System.out.println("object id : "+dcursor.getObjectId("_id"));
+                Document cursorData = cursor.next();
+                if (cursorData.getInteger("milestoneId") == milestone.getMilestoneId()) {
+                    String descr = cursorData.getString("Description");
+                    String dueDate = cursorData.getString("dueDate");
+                    String actComplitionDate = cursorData.getString("actualCompDate");
+                    String status = cursorData.getString("status");
+                    collections.updateOne(Filters.eq("Description", descr), Updates.set("Description", milestone.getDescription()));
+                    collections.updateOne(Filters.eq("dueDate", dueDate), Updates.set("dueDate", milestone.getDueDate()));
+                    collections.updateOne(Filters.eq("actualCompDate", actComplitionDate), Updates.set("actualCompDate", milestone.getActualCompletionDate()));
+                    collections.updateOne(Filters.eq("status", status), Updates.set("status", milestone.getStatus()));
                 }
             }
         }finally {
             cursor.close();
         }
-//        collections.find(eq("milestoneId",id));
+
     }
 
     public List<Milestone> getMilestoneList(String userEmail){

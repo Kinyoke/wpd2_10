@@ -216,7 +216,34 @@ public class MilestoneService extends ResourceConfig {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response editMilestone(Payload payload){
-        return Response.ok().entity(payload).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT").allow("OPTIONS").build();
+        map = (HashMap) payload.getPAYLOAD_DATA();
+        milestone = new Milestone();
+
+        String value = "";
+        int mid = Integer.parseInt((String) map.get("mid"));
+        milestone.setMilestoneId(mid);
+        value = (String) map.get("user");
+        milestone.setUser(value);
+        value = (String) map.get("dueDate");
+        milestone.setDueDate(value);
+        value = (String) map.get("actualCompletionDate");
+        milestone.setActualCompletionDate(value);
+        value = (String) map.get("description");
+        milestone.setDescription(value);
+        value = (String) map.get("status");
+        milestone.setStatus(value);
+
+        databaseConnector.updateMilestone(milestone, milestone.getUser(), milestone.getMilestoneId());
+
+        obj_1 = new JSONObject();
+        obj_2 = new JSONObject();
+        obj_3 = new JSONObject();
+
+        obj_2.put("status", "SUCCSESS");
+        obj_2.put("message", "Your milstone with milestone id : "+mid+" was updated successfully!");
+        obj_1.put("response", obj_2);
+
+        return Response.ok().entity(obj_1.toString()).header("Access-Control-Allow-Origin", "*").header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT").allow("OPTIONS").build();
     }
 
     @Path("/milestone/delete")

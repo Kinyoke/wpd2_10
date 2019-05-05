@@ -24,8 +24,34 @@ $(".tabs-btn").click(function(){
 
             $(".tabs-btn:eq("+i+")").attr("id", "");
 
-            console.log("value of i : "+i);
+        }
 
+        // var items = $(".milestone-container").length;
+        switch (getPos) {
+            case 0:
+                for (var i = 0; i < $(".milestone-container").length; i++){
+                    if (i < 8) $(".milestone-container:eq("+i+")").css({"display" : "block"});
+                    else break;
+                }
+                break;
+            case 1:
+                for (var i = 0; i < $(".milestone-container").length; i++){
+                    if (i < 8 && $(".status-holder:eq("+i+")").val() === "complete") $(".milestone-container:eq("+i+")").css({"display" : "block"});
+                    else $(".milestone-container:eq("+i+")").css({"display" : "none"});
+                }
+                break;
+            case 2:
+                for (var i = 0; i < $(".milestone-container").length; i++){
+                    if (i < 8 && $(".status-holder:eq("+i+")").val() === "pending") $(".milestone-container:eq("+i+")").css({"display" : "block"});
+                    else $(".milestone-container:eq("+i+")").css({"display" : "none"});
+                }
+                break;
+            case 3:
+                for (var i = 0; i < $(".milestone-container").length; i++){
+                    if (i < 8 && $(".status-holder:eq("+i+")").val() === "incoplete") $(".milestone-container:eq("+i+")").css({"display" : "block"});
+                    else $(".milestone-container:eq("+i+")").css({"display" : "none"});
+                }
+                break;
         }
     }
 
@@ -84,7 +110,6 @@ $("#create-milestone").click(function () {
         payload["DATA"] = {"Author" : Author, "user" : user, "dueDate" : dueDate, "actualCompletionDate" : actualDate, "description" : description };
         var d_payload = JSON.stringify(payload);
         serviceHandler("milestone/create", d_payload, addMilestone);
-        $(".cancel-btn").click();
     }else{
         alert("Please fill all field!");
     }
@@ -95,7 +120,6 @@ $("#create-milestone").click(function () {
 
 function loadMilestoneList(data) {
     var myData = JSON.parse(data);
-    console.log(myData);
     var length = myData["response"]["payload"].length;
     for (var i = 0; i < length; i++){
         var mid = "";
@@ -133,6 +157,7 @@ function addMilestone(payload) {
         else $("#more-milestone-btn").css({"display" : "block"});
         milestoneTemplate(mid, mauthor, mDescription, mdueDate, mactualCompDate, mstatus, style);
         attachItemEvents();
+        location.href = "dashboard";
     }
 }
 
@@ -157,6 +182,9 @@ function attachItemEvents() {
         $("#author-edit").val(sessionStorage.getItem("Author"));
         dueDate = $(".due-date:eq("+em_item_index+")").text();
         actComDate = $(".actcomp-date:eq("+em_item_index+")").text();
+        MILESTONE_ID = $(".id-ml:eq("+em_item_index+")").text();
+        var milestoneStatus = $(".status-holder:eq("+em_item_index+")").val();
+        console.log(milestoneStatus);
         var dueDateItem = $("#duedate-edit");
         var actualCompDate = $("#actualdate-edit");
         var tmp = dueDate.split(" ");
@@ -179,12 +207,6 @@ function attachItemEvents() {
                 actualCompDate.val(""+tmp[2]+"-"+month+"-"+tmp[0]+"");
                 break;
             }
-            // if (months[i] === tmp[1]){
-            //     var month = (i+1)+"";
-            //     if (i < 10) month= "0"+month;
-            //     actualCompDate.val(""+month+"-"+tmp[0]+"-"+tmp[2]+"");
-            //     break;
-            // }
         }
 
         var today = todaysDate();
@@ -200,8 +222,53 @@ function attachItemEvents() {
         $("#overlay").css({"display" : "block"});
         $(".milestone-form-container:eq(1)").css({"display" : "block"});
         $("#description-edit").val($(".ml-desc:eq("+em_item_index+")").text());
+        $("#edit-mstatus").val(milestoneStatus);
         isMenuItemsVisible = false;
     });
+
+
+    $("#edit-milestone").click(function () {
+        for (var i = 0; i < pattern.length; i++){
+            if (MILESTONE_ID === pattern[i]) {
+                MILESTONE_ID = ""+(i+1)+"";
+                break;
+            }
+        }
+        var mid = MILESTONE_ID;
+        var user = sessionStorage.getItem("accuser");
+        var dueDateEdit = $("#duedate-edit").val();
+        var actualDateEdit = $("#actualdate-edit").val();
+        var statusEdit = $("#edit-mstatus").val();
+        var descriptionEdit = $("#description-edit").val();
+
+        if (dueDateEdit !== "" && actualDateEdit !== "" && statusEdit !== "" && descriptionEdit !== "" && mid !== ""){
+            if (statusEdit !== "Select a status of this milestone") {
+                payload["DATA"] = {
+                    "mid": MILESTONE_ID,
+                    "user": user,
+                    "dueDate": dueDateEdit,
+                    "actualCompletionDate": actualDateEdit,
+                    "status": statusEdit,
+                    "description": descriptionEdit
+                };
+                console.log(payload);
+                var d_payload = JSON.stringify(payload);
+                serviceHandler("milestone/edit", d_payload, updateMilestone);
+            }else{
+                alert("Please select a milestone status");
+            }
+        }else {
+            alert("Please fill empty form fileds!");
+        }
+
+    });
+
+    function updateMilestone(response){
+        var res = JSON.parse(response);
+        if (res["response"]["status"] === "SUCCSESS"){
+            location.href = "dashboard";
+        }
+    }
 
 
     $(".item-choice-name-dm").click(function () {

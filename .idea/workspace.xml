@@ -8,31 +8,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8351b2e7-4d10-4804-af61-9e7be558a02f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/WEB-INF/classes/net/wpd2_coursework_group10/ADT/MilestoneList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/WEB-INF/classes/net/wpd2_coursework_group10/ADT/MilestoneList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/WEB-INF/classes/net/wpd2_coursework_group10/database/DatabaseConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/WEB-INF/classes/net/wpd2_coursework_group10/database/DatabaseConnector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/WEB-INF/classes/net/wpd2_coursework_group10/model/Milestone.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/WEB-INF/classes/net/wpd2_coursework_group10/model/Milestone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/WEB-INF/classes/net/wpd2_coursework_group10/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/WEB-INF/classes/net/wpd2_coursework_group10/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/WEB-INF/classes/net/wpd2_coursework_group10/ws/MilestoneService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/WEB-INF/classes/net/wpd2_coursework_group10/ws/MilestoneService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/dashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/script/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/script/client.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/script/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/script/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/style/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/wpd2_coursework_group10_war_exploded/style/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wpd2_coursework_group10/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/wpd2_coursework_group10/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/ADT/MilestoneList.java" beforeDir="false" afterPath="$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/ADT/MilestoneList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/database/DatabaseConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/database/DatabaseConnector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/model/Milestone.java" beforeDir="false" afterPath="$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/model/Milestone.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/ws/MilestoneService.java" beforeDir="false" afterPath="$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/ws/MilestoneService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wpd2_coursework_group10/target/classes/net/wpd2_coursework_group10/ADT/MilestoneList.class" beforeDir="false" afterPath="$PROJECT_DIR$/wpd2_coursework_group10/target/classes/net/wpd2_coursework_group10/ADT/MilestoneList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wpd2_coursework_group10/target/classes/net/wpd2_coursework_group10/database/DatabaseConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/wpd2_coursework_group10/target/classes/net/wpd2_coursework_group10/database/DatabaseConnector.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wpd2_coursework_group10/target/classes/net/wpd2_coursework_group10/model/Milestone.class" beforeDir="false" afterPath="$PROJECT_DIR$/wpd2_coursework_group10/target/classes/net/wpd2_coursework_group10/model/Milestone.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wpd2_coursework_group10/target/classes/net/wpd2_coursework_group10/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/wpd2_coursework_group10/target/classes/net/wpd2_coursework_group10/model/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wpd2_coursework_group10/target/classes/net/wpd2_coursework_group10/ws/MilestoneService.class" beforeDir="false" afterPath="$PROJECT_DIR$/wpd2_coursework_group10/target/classes/net/wpd2_coursework_group10/ws/MilestoneService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wpd2_coursework_group10/web/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/wpd2_coursework_group10/web/dashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wpd2_coursework_group10/web/script/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/wpd2_coursework_group10/web/script/client.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wpd2_coursework_group10/web/script/dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/wpd2_coursework_group10/web/script/dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wpd2_coursework_group10/web/style/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/wpd2_coursework_group10/web/style/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wpd2_coursework_group10/wpd2_coursework_group10.iml" beforeDir="false" afterPath="$PROJECT_DIR$/wpd2_coursework_group10/wpd2_coursework_group10.iml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -58,8 +39,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wpd2_coursework_group10/web/dashboard.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3315">
-              <caret line="221" column="73" selection-start-line="221" selection-start-column="58" selection-end-line="221" selection-end-column="73" />
+            <state relative-caret-position="209">
+              <caret line="225" column="24" lean-forward="true" selection-start-line="225" selection-start-column="24" selection-end-line="225" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -76,8 +57,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/ws/MilestoneService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3435">
-              <caret line="239" column="27" selection-start-line="239" selection-start-column="19" selection-end-line="239" selection-end-column="27" />
+            <state relative-caret-position="58">
+              <caret line="222" selection-start-line="222" selection-end-line="222" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,12 +69,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/database/DatabaseConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4170">
-              <caret line="295" column="58" selection-start-line="295" selection-start-column="58" selection-end-line="295" selection-end-column="58" />
+            <state relative-caret-position="217">
+              <caret line="118" column="61" lean-forward="true" selection-start-line="118" selection-start-column="61" selection-end-line="118" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#10283#10284#0" expanded="true" />
-                <element signature="e#10310#10311#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,8 +81,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wpd2_coursework_group10/web/script/dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="178" column="30" selection-start-line="178" selection-start-column="30" selection-end-line="178" selection-end-column="30" />
+            <state relative-caret-position="48">
+              <caret line="50" column="83" selection-start-line="50" selection-start-column="83" selection-end-line="50" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -124,16 +103,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mmeta</find>
-      <find>opt-menu-items</find>
-      <find>optmenuitem</find>
-      <find>main-pane-right</find>
-      <find>main-pane</find>
-      <find>account</find>
       <find>get</find>
       <find>edi</find>
       <find>edit</find>
-      <find>add</find>
       <find>getA</find>
       <find>duedate-edit</find>
       <find>parentContainer</find>
@@ -154,6 +126,13 @@
       <find>actualCompDate</find>
       <find>actualdate-edit</find>
       <find>actcomp-date</find>
+      <find>dele</find>
+      <find>edit-milestone</find>
+      <find>MILESTONE_ID</find>
+      <find>load</find>
+      <find>add</find>
+      <find>PENDI</find>
+      <find>edit-mstatus</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -214,9 +193,9 @@
         <option value="$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/ADT/MilestoneList.java" />
         <option value="$PROJECT_DIR$/wpd2_coursework_group10/web/script/client.js" />
         <option value="$PROJECT_DIR$/wpd2_coursework_group10/web/style/dashboard.css" />
+        <option value="$PROJECT_DIR$/wpd2_coursework_group10/web/dashboard.jsp" />
         <option value="$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/ws/MilestoneService.java" />
         <option value="$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/database/DatabaseConnector.java" />
-        <option value="$PROJECT_DIR$/wpd2_coursework_group10/web/dashboard.jsp" />
         <option value="$PROJECT_DIR$/wpd2_coursework_group10/web/script/dashboard.js" />
       </list>
     </option>
@@ -505,7 +484,8 @@
       <workItem from="1556630115593" duration="45915000" />
       <workItem from="1556717554145" duration="35917000" />
       <workItem from="1556824588710" duration="14069000" />
-      <workItem from="1556882112899" duration="460000" />
+      <workItem from="1556882112899" duration="6017000" />
+      <workItem from="1557010696419" duration="11782000" />
     </task>
     <task id="LOCAL-00001" summary="group10 initial commit">
       <created>1554057991458</created>
@@ -518,7 +498,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="395772000" />
+    <option name="totallyTimeSpent" value="413111000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -533,7 +513,7 @@
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5410959" visible="true" weight="0.19848485" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5410959" visible="true" weight="0.20151515" />
       <window_info id="Structure" order="1" sideWeight="0.45890412" side_tool="true" weight="0.22272727" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -544,13 +524,13 @@
       <window_info id="JavaEE:App" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32840723" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.40229884" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22660099" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39901477" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32840723" />
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.5270936" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.17569786" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.049261082" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.62068963" />
@@ -911,13 +891,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wpd2_coursework_group10/web/dashboard.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3315">
-          <caret line="221" column="73" selection-start-line="221" selection-start-column="58" selection-end-line="221" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wpd2_coursework_group10/web/style/dashboard.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -927,8 +900,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/ws/MilestoneService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3435">
-          <caret line="239" column="27" selection-start-line="239" selection-start-column="19" selection-end-line="239" selection-end-column="27" />
+        <state relative-caret-position="58">
+          <caret line="222" selection-start-line="222" selection-end-line="222" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -937,20 +910,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wpd2_coursework_group10/src/main/java/net/wpd2_coursework_group10/database/DatabaseConnector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4170">
-          <caret line="295" column="58" selection-start-line="295" selection-start-column="58" selection-end-line="295" selection-end-column="58" />
+        <state relative-caret-position="217">
+          <caret line="118" column="61" lean-forward="true" selection-start-line="118" selection-start-column="61" selection-end-line="118" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#10283#10284#0" expanded="true" />
-            <element signature="e#10310#10311#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wpd2_coursework_group10/web/dashboard.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="225" column="24" lean-forward="true" selection-start-line="225" selection-start-column="24" selection-end-line="225" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/wpd2_coursework_group10/web/script/dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="178" column="30" selection-start-line="178" selection-start-column="30" selection-end-line="178" selection-end-column="30" />
+        <state relative-caret-position="48">
+          <caret line="50" column="83" selection-start-line="50" selection-start-column="83" selection-end-line="50" selection-end-column="83" />
         </state>
       </provider>
     </entry>
